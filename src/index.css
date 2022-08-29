@@ -1,4 +1,4 @@
-@import "./node_modules/nes.css/css/nes.css";
+@import "../node_modules/nes.css/css/nes.css";
 
 body {
   margin: 0;
@@ -10,7 +10,7 @@ body {
 }
 
 html, body, pre, code, kbd, samp {
-  font-family: "font-family you want to use";
+  font-family: "Press Start 2P", sans-serif;
 }
 
 code {
