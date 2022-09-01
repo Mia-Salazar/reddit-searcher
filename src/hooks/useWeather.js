@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 
-const useWeatherThreeHour = (lat = 51, lon = 7) => {
+const useWeatherThreeHour = (data) => {
     const [list, setList] = useState([]);
     const apiKey = "33a0a36aa4fc08982e82b8e705e2e822"
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`)
-        .then(response => response.json())
-        .then(response => setList(response))
-        .catch(err => console.error(err));
-    }, []);
+        if (data) {
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${apiKey}`)
+            .then(response => response.json())
+            .then(response => setList(response))
+            .catch(err => console.error(err));
+        }
+    }, [data]);
     return list
 
     // const options = {
