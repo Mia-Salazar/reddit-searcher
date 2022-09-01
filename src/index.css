@@ -17,3 +17,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main {
+  padding: 48px 24px 24px 24px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
