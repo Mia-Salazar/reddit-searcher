@@ -8,7 +8,7 @@ export const Header = () => {
 		{link: "/", text: "Home"}
 	];
 	return (
-		<header class="nes-container with-title is-centered header">
+		<header className="nes-container with-title is-centered header">
             <h1>Reddit posts</h1>
             <nav>
                 <ul>
