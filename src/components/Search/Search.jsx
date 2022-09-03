@@ -2,10 +2,9 @@ import React, { useRef } from "react";
 
 import "./Search.scss";
 
-export const Search = ({data, setData}) => {
-    //const list = useWeatherThreeHour();
-    const form = useRef(null);
-    const searchWeather = (event) => {
+export const Search = ({setData}) => {
+    const form = useRef();
+    const handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(form.current);
         const directions = {
@@ -15,16 +14,16 @@ export const Search = ({data, setData}) => {
         setData(directions);
     }
 	return (
-        <form onSubmit={searchWeather} ref={form}>
+        <form onSubmit={handleSubmit} ref={form} className="form">
             <div className="nes-field">
-                <label for="lat">Latitud</label>
-                <input type="text" id="lat" className="nes-input"/>
+                <label htmlFor="lat">Latitude</label>
+                <input type="text" id="lat" name="lat" className="nes-input"/>
             </div>
             <div className="nes-field">
-                <label for="lon">Longitud</label>
-                <input type="text" id="lon" className="nes-input"/>
+                <label htmlFor="lon">Longitude</label>
+                <input type="text" id="lon" name="lon" className="nes-input"/>
             </div>
-            <button type="submit" class="nes-btn is-primary">Buscar</button>
+            <button type="submit" className="nes-btn is-primary">Search</button>
         </form>
 	);
 };
