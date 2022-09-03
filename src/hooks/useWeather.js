@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
 
-const useWeatherThreeHour = (data) => {
-    const [list, setList] = useState([]);
-    const apiKey = "33a0a36aa4fc08982e82b8e705e2e822"
+const useSearchByLatAndLon = (data) => {
+    const [weather, setWeather] = useState();
+    const [loading, setLoading] = useState(true);
+    const apiKey = "33a0a36aa4fc08982e82b8e705e2e822";
     useEffect(() => {
         if (data) {
+            setLoading(true)
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${apiKey}`)
             .then(response => response.json())
-            .then(response => setList(response))
-            .catch(err => console.error(err));
+            .then(response => {
+                setWeather(response);
+                setLoading(false);
+            })
+            .catch(err => {
+                setLoading(false);
+                console.error(err);
+            });
         }
     }, [data]);
-    return list
+    return {weather, loading};
 
     // const options = {
     //     method: 'GET',
@@ -29,5 +37,5 @@ const useWeatherThreeHour = (data) => {
     // return list
 }
 
-export default useWeatherThreeHour;
+export default useSearchByLatAndLon;
 

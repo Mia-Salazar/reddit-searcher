@@ -24,7 +24,11 @@ code {
 
 @media (min-width: 768px) {
   .main {
-    max-width: 900px;
+    max-width: 980px;
     margin: 0 auto;
   }
+}
+
+.nes-container {
+  margin-bottom: 24px;
 }
