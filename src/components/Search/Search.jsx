@@ -14,7 +14,7 @@ export const Search = ({setData, byDay = false}) => {
             'lon': formData.get('lon'),
         }
         if (byDay) {
-            directions['day'] = formData.get('day')
+            directions['day'] = Number(formData.get('day'))
         }
         setData(directions);
     }
@@ -30,8 +30,8 @@ export const Search = ({setData, byDay = false}) => {
             </div>
             {byDay && (
                 <div className="radio-group">
-                    <Checkbox value={4} isChecked={true} text="4 days"/>
-                    <Checkbox value={16} text="16 days"/>
+                    <Checkbox value={16} isChecked={true} text="16 days"/>
+                    <Checkbox value={30} text="30 days"/>
                 </div>
             )}
             <button type="submit" className="nes-btn is-primary">Search</button>
