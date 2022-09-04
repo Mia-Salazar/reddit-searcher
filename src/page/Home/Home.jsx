@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 import { Search } from "../../components/Search/Search";
 import WeatherSingleDay from "../../components/WeatherSingleDay/WeatherSingleDay";
-import useWeatherfrom "../../hooks/useWeather";
+import useWeather from "../../hooks/useWeather";
 
 export const Home = () => {
 	const submitRef = useRef();
