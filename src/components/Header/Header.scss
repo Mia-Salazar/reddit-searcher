@@ -4,4 +4,15 @@ ul {
 
 .header {
     margin-bottom: 0;
+
+    .nes-list {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-right: 32px;
+        font-size: 12px;
+    }
 }

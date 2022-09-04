@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useSearchByLatAndLon = (data) => {
+const useWeather = (data) => {
     const [weather, setWeather] = useState();
     const [loading, setLoading] = useState(true);
     const apiKey = "33a0a36aa4fc08982e82b8e705e2e822";
@@ -37,5 +37,5 @@ const useSearchByLatAndLon = (data) => {
     // return list
 }
 
-export default useSearchByLatAndLon;
+export default useWeather;
 
