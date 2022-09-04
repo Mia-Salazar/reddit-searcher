@@ -5,13 +5,14 @@ import "./Header.scss";
 
 export const Header = () => {
 	const navLinks = [
-		{link: "/", text: "Home"}
+		{link: "/", text: "Current"},
+		{link: "/day", text: "By days"},
 	];
 	return (
 		<header className="nes-container with-title is-centered header">
-            <h1>Weather app</h1>
-            <nav>
-                <ul>
+            <h1>Weather</h1>
+            <nav className="lists">
+                <ul className="nes-list is-disc">
 				{
 					navLinks.map((link) => {
 						return(

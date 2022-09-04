@@ -2,22 +2,21 @@ import React, { useState, useRef } from "react";
 
 import { Search } from "../../components/Search/Search";
 import WeatherSingleDay from "../../components/WeatherSingleDay/WeatherSingleDay";
-import useWeatherfrom "../../hooks/useWeather";
 
-export const Home = () => {
+export const ByDay = () => {
 	const submitRef = useRef();
 	const [data, setData] = useState();
-    const {weather, loading} = useWeather(data);
+    //const {weather, loading} = useWeather(data);
 	return (
 		<section >
 			
 			<article className="nes-container with-title">
-				<h2 className="title">Search weather</h2>
-				<Search setData={setData} submitRef={submitRef}/>
+				<h2 className="title">Search weather by days</h2>
+				<Search setData={setData} byDay={true} submitRef={submitRef}/>
 			</article>
-			{ data && !loading && <WeatherSingleDay weather={weather} />}
+
 		</section>
 	);
 };
 
-export default Home;
+export default ByDay;
