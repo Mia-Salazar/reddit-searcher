@@ -7,6 +7,7 @@ export const Header = () => {
 	const navLinks = [
 		{link: "/", text: "Current"},
 		{link: "/day", text: "By days"},
+		{link: "/map", text: "Map"},
 	];
 	return (
 		<header className="nes-container with-title is-centered header">
