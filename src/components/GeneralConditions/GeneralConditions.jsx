@@ -2,6 +2,7 @@ import React from "react";
 
 export const GeneralConditions = ({weather, byDay = false}) => {
     const getTime = (miliseconds) => {
+        console.log('wii')
         const date = new Date(miliseconds);
         const time = `${date.getHours()}:${date.getMinutes()}`;
         return time;
