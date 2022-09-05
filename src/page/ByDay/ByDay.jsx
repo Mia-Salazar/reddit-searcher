@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import { Search } from "../../components/Search/Search";
+import WeatherMultipleDays from "../../components/WeatherMultipleDays/WeatherMultipleDays";
 import useWeatherByDay from "../../hooks/useWeatherByDay";
 
 export const ByDay = () => {
@@ -13,7 +14,7 @@ export const ByDay = () => {
 				<h2 className="title">Search weather by days</h2>
 				<Search setData={setData} byDay={true} submitRef={submitRef}/>
 			</article>
-
+            {data && !loading && <WeatherMultipleDays weather={weather}/>} 
 		</section>
 	);
 };

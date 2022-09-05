@@ -19,7 +19,7 @@ const useWeatherByDay = (data) => {
             });
         }
     }, [data]);
-    return {weather, loading};
+    return {weather, loading}; 
 }
 
 export default useWeatherByDay;
