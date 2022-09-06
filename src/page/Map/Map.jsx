@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import SearchMap from "../../components/SearchMap/SearchMap";
 
-export const Home = () => {
-	// const submitRef = useRef();
+import SearchMap from "../../components/SearchMap/SearchMap";
+import useMapWeather from "../../hooks/useMapWeather";
+
+export const Map = () => {
 	const [data, setData] = useState();
-    //const {weather, loading} = useWeather(data);
+    const {weather, loading} = useMapWeather(data);
 	return (
 		<section >
 			<article className="nes-container with-title">
@@ -15,4 +16,4 @@ export const Home = () => {
 	);
 };
 
-export default Home;
+export default Map;
