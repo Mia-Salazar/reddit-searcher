@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Input } from "../Input/Input";
+
 export const SearchMap = ({setData}) => {
     const [dataInput, setDataInput] = useState("")
     const handleSubmit = (event) => {
@@ -25,18 +27,9 @@ export const SearchMap = ({setData}) => {
                     <option value="wind_new">Wind speed</option>
                 </select>
             </div>
-            <div className="nes-field">
-                <label htmlFor="z">Zoom %</label>
-                <input type="number" id="z" name="z" min="0" className="nes-input" required onChange={handleInputChange}/>
-            </div>
-            <div className="nes-field">
-                <label htmlFor="x">Number of x tile coordinate</label>
-                <input type="number" id="x" name="x"className="nes-input" required onChange={handleInputChange}/>
-            </div>
-            <div className="nes-field">
-                <label htmlFor="y">Number of y tile coordinate</label>
-                <input type="number" id="y" name="y"className="nes-input" required onChange={handleInputChange}/>
-            </div>
+            <Input id="z" title="Zoom %" min="0" handleInputChange={handleInputChange}/>
+            <Input id="x" title="Number of x tile coordinate" min="0" handleInputChange={handleInputChange}/>
+            <Input id="y" title="umber of y tile coordinate" min="0" handleInputChange={handleInputChange}/>
             <button type="submit" className="nes-btn is-primary">Search</button>
         </form>
 	);
