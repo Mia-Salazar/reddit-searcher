@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Input } from "../Input/Input";
+import Select from "../Select/Select";
 
 export const SearchMap = ({setData}) => {
     const [dataInput, setDataInput] = useState("")
@@ -14,19 +15,17 @@ export const SearchMap = ({setData}) => {
             [event.target.name] : event.target.value
         })
     }
+    const selectOptions = [
+        {value: "", text: "Select..."},
+        {value: "clouds_new", text: "Clouds"},
+        {value: "precipitation_new", text: "Precipitation<"},
+        {value: "temp_new", text: "Temperature"},
+        {value: "pressure_new", text: "Sea level pressure"},
+        {value: "wind_new", text: "Wind speed"},
+    ]
 	return (
         <form onSubmit={handleSubmit} className="form">
-            <label htmlFor="layer">Select layer</label>
-            <div className="nes-select">
-                <select required id="layer" name="layer" onChange={handleInputChange}>
-                    <option value="">Select...</option>
-                    <option value="clouds_new">Clouds</option>
-                    <option value="precipitation_new">Precipitation</option>
-                    <option value="temp_new">Temperature</option>
-                    <option value="pressure_new">Sea level pressure</option>
-                    <option value="wind_new">Wind speed</option>
-                </select>
-            </div>
+            <Select options={selectOptions} id="layer" title="Select layer" handleChange={handleInputChange}/>
             <Input id="z" title="Zoom %" min="0" handleInputChange={handleInputChange}/>
             <Input id="x" title="Number of x tile coordinate" min="0" handleInputChange={handleInputChange}/>
             <Input id="y" title="umber of y tile coordinate" min="0" handleInputChange={handleInputChange}/>
