@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 
+import { Input } from "../Input/Input";
 import "./Search.scss";
 
 export const Search = ({setData, byDay = false}) => {
@@ -18,19 +19,10 @@ export const Search = ({setData, byDay = false}) => {
     }
 	return (
         <form onSubmit={handleSubmit} ref={form} className="form">
-            <div className="nes-field">
-                <label htmlFor="lat">Latitude</label>
-                <input type="number" id="lat" name="lat" className="nes-input" required/>
-            </div>
-            <div className="nes-field">
-                <label htmlFor="lon">Longitude</label>
-                <input type="number" id="lon" name="lon" className="nes-input" required/>
-            </div>
+            <Input id="lat" title="Latitude" />
+            <Input id="lon" title="Longitude" />
             {byDay && (
-                <div className="nes-field">
-                    <label htmlFor="lon">Number of days</label>
-                    <input type="number" id="lon" name="day" min="1" max="5" className="nes-input" required/>
-                </div>
+                <Input id="day" min="1" max="5" title="Number of days" />
             )}
             <button type="submit" className="nes-btn is-primary">Search</button>
         </form>
