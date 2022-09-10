@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PollutionDay from "../../components/PollutionDay/PollutionDay";
 
 import SearchPollution from "../../components/SearchPollution/SearchPollution";
 import useAirPollution from "../../hooks/useAirPollution";
@@ -11,8 +12,13 @@ export const Pollution = () => {
 			<article className="nes-container with-title">
 				<h2 className="title">Air Pollution</h2>
                 <SearchPollution setData={setData} />
-				{loading && <h2>Cargando...</h2>}
 			</article>
+			{loading && data && <h2>Cargando...</h2>}
+			{!loading && data && pollution.list.map((option, index) => {
+				return(
+					<PollutionDay pollution={option} key={index} />
+				);
+			})}
 		</section>
 	);
 };
