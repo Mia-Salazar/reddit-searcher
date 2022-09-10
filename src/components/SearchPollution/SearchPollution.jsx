@@ -4,43 +4,45 @@ import { Input } from "../Input/Input";
 import Select from "../Select/Select";
 
 export const SearchPollution = ({setData}) => {
-    const [selectValue, setSelectValue] = useState("")
-    const [dataInput, setDataInput] = useState("")
+    const transformToMiliseconds = (value) => {
+        const dateToChange = new Date(value);
+        return dateToChange.getTime();
+    }
+    const [dataForm, setDataForm] = useState("")
     const handleSubmit = (event) => {
         event.preventDefault();
-        setData(dataInput)
-    }
-    const handleSelectChange = (event) => {
-        setSelectValue(event.target.value)
-        handleInputChange(event)
+        setData({...dataForm,
+            start: transformToMiliseconds(dataForm.start),
+            end: transformToMiliseconds(dataForm.end),
+        });
     }
     const handleInputChange = (event) => {
-        setDataInput({
-            ...dataInput,
+        setDataForm({
+            ...dataForm,
             [event.target.name] : event.target.value
-        })
+        });
     }
     const selectOptions = [
         {value: "", text: "...Select"},
         {value: "lat", text: "Latitude and longitude"},
         {value: "city", text: "City name"},
         {value: "zip", text: "Post code"},
-    ]
+    ];
 	return (
         <form onSubmit={handleSubmit} className="form">
-            <Select options={selectOptions} id="layer" title="Search by" handleChange={handleSelectChange}/>
-            {selectValue === "lat" && (
+            <Select options={selectOptions} id="type" title="Search by" handleChange={handleInputChange}/>
+            {dataForm.type === "lat" && (
                 <>
                     <Input id="lat" title="Latitude" handleInputChange={handleInputChange}/>
                     <Input id="lon" title="Longitude" handleInputChange={handleInputChange}/>
                 </>
             )}
-            {selectValue === "city" && (
+            {dataForm.type === "city" && (
                 <>
                     <Input id="city" title="Ciudad" type="text" handleInputChange={handleInputChange}/>
                 </>
             )}
-            {selectValue === "zip" && (
+            {dataForm.type === "zip" && (
                 <>
                     <Input id="zip" title="ZIP" handleInputChange={handleInputChange}/>
                 </>
