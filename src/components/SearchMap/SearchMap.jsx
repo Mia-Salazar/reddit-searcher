@@ -14,6 +14,7 @@ export const SearchMap = ({setData}) => {
             ...dataInput,
             [event.target.name] : event.target.value
         })
+        console.log(dataInput)
     }
     const selectOptions = [
         {value: "", text: "Select..."},
