@@ -4,11 +4,12 @@ import { Input } from "../Input/Input";
 import Select from "../Select/Select";
 
 export const SearchPollution = ({setData}) => {
+    const [searchTerm, setSearchTerm] = useState('')
+    const [dataForm, setDataForm] = useState("")
     const transformToMiliseconds = (value) => {
         const dateToChange = new Date(value);
         return dateToChange.getTime();
     }
-    const [dataForm, setDataForm] = useState("")
     const handleSubmit = (event) => {
         event.preventDefault();
         setData({...dataForm,
