@@ -20,6 +20,7 @@ code {
 
 .main {
   padding: 48px 24px 24px 24px;
+  position: relative;
 }
 
 @media (min-width: 768px) {

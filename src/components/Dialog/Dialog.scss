@@ -1,0 +1,5 @@
+dialog:not([open]) {
+    display: block;
+    bottom: 0;
+    top: 0;
+}
