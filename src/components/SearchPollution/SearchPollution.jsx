@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Input } from "../Input/Input";
 import Select from "../Select/Select";
 
-export const SearchPollution = ({setData}) => {
-    const [searchTerm, setSearchTerm] = useState('')
+export const SearchPollution = ({setData, setCity}) => {
     const [dataForm, setDataForm] = useState("")
+
     const transformToMiliseconds = (value) => {
         const dateToChange = new Date(value);
         return dateToChange.getTime();
@@ -29,6 +29,12 @@ export const SearchPollution = ({setData}) => {
         {value: "city", text: "City name"},
         {value: "zip", text: "Post code"},
     ];
+    const changeCity = (event) => {
+        const timer = setTimeout(() => {
+            setCity(event.target.value)
+        }, 1500)
+        return () => clearTimeout(timer) 
+    }
 	return (
         <form onSubmit={handleSubmit} className="form">
             <Select options={selectOptions} id="type" title="Search by" handleChange={handleInputChange}/>
@@ -40,7 +46,7 @@ export const SearchPollution = ({setData}) => {
             )}
             {dataForm.type === "city" && (
                 <>
-                    <Input id="city" title="Ciudad" type="text" handleInputChange={handleInputChange}/>
+                    <Input id="city" title="Ciudad" type="text" handleInputChange={changeCity}/>
                 </>
             )}
             {dataForm.type === "zip" && (

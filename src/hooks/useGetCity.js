@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useWeatherByDay = (search) => {
+const useGetCity = (search) => {
     //http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}
     const [cities, setCities] = useState();
     const [loading, setLoading] = useState(true);
@@ -23,4 +23,4 @@ const useWeatherByDay = (search) => {
     return {cities, loading}; 
 }
 
-export default useWeatherByDay;
+export default useGetCity;
