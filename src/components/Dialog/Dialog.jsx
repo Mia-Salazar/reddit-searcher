@@ -1,14 +1,24 @@
 import React from "react";
 
+import Select from "../Select/Select";
+
 import "./Dialog.scss";
 
-export const Dialog = ({setDialog}) => {
+export const Dialog = ({setDialog, cities, setCityLatLon}) => {
+    const selectCity = (event) => {
+        let coord = {
+            lat: cities[event.value].lat,
+            lon: cities[event.value].lon
+        }
+        setCityLatLon(coord);
+        setDialog(false);
+    }
+
 	return (
         <dialog className="nes-dialog" id="dialog-default">
-            <p className="title">Dialog</p>
-            <p>Alert: this is a dialog.</p>
+            {cities && <Select options={cities} id="type" title="Choose city" handleChange={selectCity}/>}
             <menu className="dialog-menu">
-                <button className="nes-btn">Cancel</button>
+                <button className="nes-btn" onClick={ e => setDialog(false)}>Cancel</button>
                 <button className="nes-btn is-primary">Confirm</button>
             </menu>
         </dialog>
