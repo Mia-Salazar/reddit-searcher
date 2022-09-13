@@ -32,7 +32,6 @@ export const SearchPollution = ({handleSubmit, setCity, dataForm, setDataForm}) 
         {value: "", text: "...Select"},
         {value: "lat", text: "Latitude and longitude"},
         {value: "city", text: "City name"},
-        {value: "zip", text: "Post code"},
     ];
     const changeCity = (event) => {
         const timer = setTimeout(() => {

@@ -7,7 +7,6 @@ export const Header = () => {
 	const navLinks = [
 		{link: "/", text: "Current"},
 		{link: "/day", text: "By days"},
-		{link: "/map", text: "Map"},
 		{link: "/pollution", text: "Air Pollution"},
 	];
 	return (
