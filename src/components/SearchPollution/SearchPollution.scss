@@ -1,0 +1,18 @@
+.close-button {
+    border: none;
+    appearance: none;
+    background-color: transparent;
+}
+
+.nes-input.city-name-container {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.city-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

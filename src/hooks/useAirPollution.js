@@ -9,7 +9,7 @@ const useAirPollution = (data) => {
         //http://api.openweathermap.org/data/2.5/air_pollution/history?lat=50&lon=50&start=1606223802&end=1606482999&appid=${apiKey}
         if (data) {
             setLoading(true)
-            fetch(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=50&lon=50&start=1606223802&end=1606482999&appid=${apiKey}}`)
+            fetch(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${data.lat}&lon=${data.lon}&start=${data.start}&end=${data.end}&appid=${apiKey}`)
             .then(response => response.json())
             .then(response => {
                 setPollution(response);
